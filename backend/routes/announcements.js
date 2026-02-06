@@ -1,5 +1,6 @@
 const express = require("express");
 const client = require("../db");
+const { authenticateToken, requireAdmin } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authenticateToken, requireAdmin, async (req, res) => {
   const { title, content, date } = req.body;
 
   if (!title || !content) {
@@ -35,7 +36,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, requireAdmin, async (req, res) => {
   const { id } = req.params;
 
   try {
