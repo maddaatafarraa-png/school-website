@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getToken, isAdminToken } from "@/lib/auth";
 
 const navStyle = {
   display: "flex",
@@ -13,6 +15,13 @@ const linkStyle = {
 };
 
 export default function Header() {
+  const [showAdmin, setShowAdmin] = useState(false);
+
+  useEffect(() => {
+    const token = getToken();
+    setShowAdmin(isAdminToken(token));
+  }, []);
+
   return (
     <header
       style={{
@@ -40,6 +49,11 @@ export default function Header() {
         <Link href="/staff" style={linkStyle}>
           Staff
         </Link>
+        {showAdmin ? (
+          <Link href="/admin" style={linkStyle}>
+            Admin
+          </Link>
+        ) : null}
         <Link href="/announcements" style={linkStyle}>
           Programs & Announcements
         </Link>
