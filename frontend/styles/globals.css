@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Outfit:wght@400;600;700&display=swap");
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --primary-color: #3366ff;
+  --font-body: "Nunito", sans-serif;
+  --font-heading: "Outfit", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,11 +23,44 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background:
+    linear-gradient(120deg, rgba(101, 42, 128, 0.95) 0%, rgba(45, 86, 152, 0.78) 40%, rgba(20, 116, 120, 0.65) 68%, rgba(12, 24, 40, 0.5) 100%),
+    radial-gradient(circle at 75% 40%, rgba(255, 255, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(255, 185, 120, 0.12), transparent 60%);
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+.app-main {
+  padding: 24px;
+  min-height: calc(100vh - 86px);
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.app-main-home {
+  padding: 0;
+}
+
+.wave-target {
+  will-change: transform;
+}
+
+.glow-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glow-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 26px rgba(51, 102, 255, 0.4);
+}
+
+.glow-button:active {
+  transform: translateY(0) scale(0.98);
 }
 
 * {

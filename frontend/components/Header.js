@@ -1,69 +1,74 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { getToken, isAdminToken } from "@/lib/auth";
+import { useMemo } from "react";
+import styles from "@/styles/Header.module.css";
 
-const navStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "16px",
-  alignItems: "center",
-};
+const pillClasses = [styles.pillRed, styles.pillBlue, styles.pillPurple];
 
-const linkStyle = {
-  color: "var(--primary-color)",
-  fontWeight: 600,
-};
-
-export default function Header() {
-  const [showAdmin, setShowAdmin] = useState(false);
-
-  useEffect(() => {
-    const token = getToken();
-    setShowAdmin(isAdminToken(token));
+export default function Header({ isHome }) {
+  const navItems = useMemo(() => {
+    return [
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About Us" },
+    ];
   }, []);
 
   return (
     <header
-      style={{
-        borderBottom: "1px solid #e5e7eb",
-        padding: "16px 24px",
-        background: "#f8faff",
-      }}
+      className={`wave-target ${styles.header} ${
+        isHome ? styles.headerHome : ""
+      }`}
     >
-      <nav style={navStyle}>
-        <Link href="/" style={linkStyle}>
-          Home
-        </Link>
-        <Link href="/about" style={linkStyle}>
-          About
-        </Link>
-        <Link href="/nursery" style={linkStyle}>
-          Nursery
-        </Link>
-        <Link href="/primary" style={linkStyle}>
-          Primary
-        </Link>
-        <Link href="/high-school" style={linkStyle}>
-          High School
-        </Link>
-        <Link href="/staff" style={linkStyle}>
-          Staff
-        </Link>
-        {showAdmin ? (
-          <Link href="/admin" style={linkStyle}>
-            Admin
+      <div className={styles.navGrid}>
+        <div className={styles.navLeft} aria-hidden="true" />
+        <nav
+          className={`${styles.navList} wave-target`}
+          aria-label="Main navigation"
+        >
+          {navItems.map((item, index) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`${styles.pill} ${
+                pillClasses[index % pillClasses.length]
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <div className={styles.dropdown}>
+            <span className={`${styles.pill} ${styles.pillPurple}`}>
+              Academics
+            </span>
+            <div className={styles.dropdownMenu}>
+              <Link href="/nursery" className={styles.dropdownItem}>
+                Nursery
+              </Link>
+              <Link href="/primary" className={styles.dropdownItem}>
+                Primary
+              </Link>
+              <Link href="/high-school" className={styles.dropdownItem}>
+                High School
+              </Link>
+              <Link href="/staff" className={styles.dropdownItem}>
+                Staff
+              </Link>
+              <Link href="/library" className={styles.dropdownItem}>
+                Library
+              </Link>
+              <Link href="/announcements" className={styles.dropdownItem}>
+                Programs & Announcements
+              </Link>
+            </div>
+          </div>
+        </nav>
+
+        <div className={`${styles.navRight} wave-target`}>
+          <Link href="/login" className={`${styles.pill} ${styles.pillGold}`}>
+            Login
           </Link>
-        ) : null}
-        <Link href="/announcements" style={linkStyle}>
-          Programs & Announcements
-        </Link>
-        <Link href="/library" style={linkStyle}>
-          Library
-        </Link>
-        <Link href="/contact" style={linkStyle}>
-          Contact
-        </Link>
-      </nav>
+        </div>
+      </div>
     </header>
   );
 }

@@ -1,141 +1,216 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
+.hero {
+  position: relative;
   min-height: 100vh;
+  color: #fff;
+  overflow: hidden;
+  z-index: 1;
+  background:
+    linear-gradient(120deg, rgba(101, 42, 128, 0.9) 0%, rgba(45, 86, 152, 0.72) 40%, rgba(20, 116, 120, 0.55) 68%, rgba(12, 24, 40, 0.3) 100%),
+    radial-gradient(circle at 75% 40%, rgba(255, 255, 255, 0.15), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(255, 185, 120, 0.18), transparent 60%);
+  background-size: cover;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 140px 64px 80px;
+  max-width: 1200px;
+}
+
+.brandRow {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  gap: 28px;
+  flex-wrap: wrap;
 }
 
-.main {
+.brandTitle {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.brandSubtitle {
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 6px 0 4px;
+  text-transform: uppercase;
+}
+
+.brandTagline {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.logoGroup {
   display: flex;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
+  align-items: center;
   gap: 16px;
-  font-size: 14px;
 }
 
-.ctas a {
+.logoBadge {
+  width: 80px;
+  height: 96px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px 12px 40px 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.logoSeal {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.divider {
+  width: 1px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.35);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.vision {
+  margin-top: 40px;
+  max-width: 560px;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.vision h1 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  margin: 0 0 12px;
+}
+
+.vision p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.featureRow {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.featureCard {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cardWarm {
+  background: linear-gradient(140deg, #f08c4a, #c9493e);
+}
+
+.cardCrimson {
+  background: linear-gradient(140deg, #c13a4b, #6d0f1f);
+}
+
+.cardGreen {
+  background: linear-gradient(140deg, #7fc47e, #3a7f5e);
+}
+
+.cardPurple {
+  background: linear-gradient(140deg, #8a6bbf, #4a3f8c);
+}
+
+.quickLinks {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #930a1b;
+  color: #fff;
+  padding: 20px 12px;
+  border-radius: 16px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.footerNote {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  text-align: right;
+  font-size: 13px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.leaf {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 120px;
+  height: 120px;
+  background:
+    radial-gradient(circle at 30% 30%, #a7d354, transparent 55%),
+    radial-gradient(circle at 60% 60%, #5a9c45, transparent 55%),
+    radial-gradient(circle at 70% 30%, #c3e36c, transparent 60%);
+  opacity: 0.9;
+  filter: blur(1px);
+  border-radius: 50% 40% 60% 50%;
+}
+
+@media (max-width: 900px) {
+  .heroContent {
+    padding: 120px 32px 64px;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .brandTitle {
+    font-size: 40px;
+  }
+
+  .vision {
+    max-width: 100%;
+  }
+
+  .quickLinks {
+    display: none;
+  }
+
+  .footerNote {
+    position: static;
+    margin-top: 24px;
+    text-align: left;
   }
 }
 
 @media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .featureCard {
+    width: 120px;
+    height: 120px;
+    font-size: 14px;
   }
 }

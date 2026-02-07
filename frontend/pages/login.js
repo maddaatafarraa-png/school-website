@@ -47,55 +47,98 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <h1 style={{ color: "var(--primary-color)" }}>Login</h1>
-      <form onSubmit={handleSubmit} style={{ maxWidth: "420px" }}>
-        <label htmlFor="email" style={{ display: "block", marginTop: "12px" }}>
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          style={{ width: "100%", padding: "8px", marginTop: "6px" }}
-          required
-        />
+    <div
+      style={{
+        minHeight: "calc(100vh - 86px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      className="wave-target"
+    >
+      <div
+        style={{
+          background: "rgba(12, 16, 28, 0.72)",
+          padding: "32px",
+          borderRadius: "20px",
+          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.35)",
+          width: "100%",
+          maxWidth: "420px",
+        }}
+        className="wave-target"
+      >
+        <h1 style={{ color: "#fff", textAlign: "center", marginBottom: "12px" }}>
+          Login
+        </h1>
+        <form onSubmit={handleSubmit} className="wave-target">
+          <label htmlFor="email" style={{ display: "block", marginTop: "12px" }}>
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              marginTop: "6px",
+              borderRadius: "12px",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              background: "rgba(255, 255, 255, 0.08)",
+              color: "#fff",
+            }}
+            required
+          />
 
-        <label
-          htmlFor="password"
-          style={{ display: "block", marginTop: "12px" }}
-        >
-          Password
-        </label>
-        <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          style={{ width: "100%", padding: "8px", marginTop: "6px" }}
-          required
-        />
+          <label
+            htmlFor="password"
+            style={{ display: "block", marginTop: "12px" }}
+          >
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              marginTop: "6px",
+              borderRadius: "12px",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              background: "rgba(255, 255, 255, 0.08)",
+              color: "#fff",
+            }}
+            required
+          />
 
-        {error ? (
-          <p style={{ color: "crimson", marginTop: "12px" }}>{error}</p>
-        ) : null}
+          {error ? (
+            <p style={{ color: "#ffb3b3", marginTop: "12px" }}>{error}</p>
+          ) : null}
 
-        <button
-          type="submit"
-          disabled={loading}
-          style={{
-            marginTop: "16px",
-            padding: "10px 16px",
-            background: "var(--primary-color)",
-            color: "#fff",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          {loading ? "Signing in..." : "Sign In"}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              marginTop: "16px",
+              padding: "12px 16px",
+              width: "100%",
+              background: "var(--primary-color)",
+              color: "#fff",
+              border: "none",
+              borderRadius: "999px",
+              cursor: "pointer",
+              fontWeight: 700,
+              boxShadow: "0 10px 18px rgba(51, 102, 255, 0.35)",
+            }}
+            className="glow-button wave-target"
+          >
+            {loading ? "Signing in..." : "Sign In"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
