@@ -58,10 +58,11 @@ export default function LoginPage() {
     >
       <div
         style={{
-          background: "rgba(12, 16, 28, 0.72)",
+          background: "rgba(12, 16, 28, 0.8)",
           padding: "32px",
           borderRadius: "20px",
-          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.35)",
+          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.45)",
+          border: "1px solid rgba(212, 175, 55, 0.2)",
           width: "100%",
           maxWidth: "420px",
         }}
@@ -71,7 +72,14 @@ export default function LoginPage() {
           Login
         </h1>
         <form onSubmit={handleSubmit} className="wave-target">
-          <label htmlFor="email" style={{ display: "block", marginTop: "12px" }}>
+          <label
+            htmlFor="email"
+            style={{
+              display: "block",
+              marginTop: "12px",
+              color: "#f5e6b0",
+            }}
+          >
             Email
           </label>
           <input
@@ -84,16 +92,20 @@ export default function LoginPage() {
               padding: "10px 12px",
               marginTop: "6px",
               borderRadius: "12px",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              background: "rgba(255, 255, 255, 0.08)",
-              color: "#fff",
+              border: "1px solid rgba(212, 175, 55, 0.3)",
+              background: "rgba(245, 230, 176, 0.08)",
+              color: "#f8f3e6",
             }}
             required
           />
 
           <label
             htmlFor="password"
-            style={{ display: "block", marginTop: "12px" }}
+            style={{
+              display: "block",
+              marginTop: "12px",
+              color: "#f5e6b0",
+            }}
           >
             Password
           </label>
@@ -107,9 +119,9 @@ export default function LoginPage() {
               padding: "10px 12px",
               marginTop: "6px",
               borderRadius: "12px",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              background: "rgba(255, 255, 255, 0.08)",
-              color: "#fff",
+              border: "1px solid rgba(212, 175, 55, 0.3)",
+              background: "rgba(245, 230, 176, 0.08)",
+              color: "#f8f3e6",
             }}
             required
           />
@@ -125,13 +137,13 @@ export default function LoginPage() {
               marginTop: "16px",
               padding: "12px 16px",
               width: "100%",
-              background: "var(--primary-color)",
-              color: "#fff",
+              background: "linear-gradient(135deg, #d4af37, #f5e6b0)",
+              color: "#3b2b0d",
               border: "none",
               borderRadius: "999px",
               cursor: "pointer",
               fontWeight: 700,
-              boxShadow: "0 10px 18px rgba(51, 102, 255, 0.35)",
+              boxShadow: "0 10px 18px rgba(212, 175, 55, 0.35)",
             }}
             className="glow-button wave-target"
           >

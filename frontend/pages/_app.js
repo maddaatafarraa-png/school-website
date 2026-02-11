@@ -60,8 +60,8 @@ export default function App({ Component, pageProps }) {
     weightedTargets.forEach((item) => {
       const distanceRatio = item.distance / maxDistance;
       const delay = distanceRatio * 0.8;
-      const ampY = 14 - distanceRatio * 8;
-      const ampX = 6 - distanceRatio * 3;
+      const ampY = 7 - distanceRatio * 4;
+      const ampX = 3.5 - distanceRatio * 2;
       const dirX = item.dx === 0 ? 0 : item.dx / Math.abs(item.dx);
       const dirY = item.dy === 0 ? 0 : item.dy / Math.abs(item.dy);
       const xShift = dirX * ampX;

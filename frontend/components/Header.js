@@ -19,7 +19,15 @@ export default function Header({ isHome }) {
       }`}
     >
       <div className={styles.navGrid}>
-        <div className={styles.navLeft} aria-hidden="true" />
+        <div className={styles.navLeft}>
+          <Link href="/" className={styles.logoLink} aria-label="Shadow Garden">
+            <img
+              src="/images/logo.png"
+              alt="Shadow Garden logo"
+              className={styles.logoImage}
+            />
+          </Link>
+        </div>
         <nav
           className={`${styles.navList} wave-target`}
           aria-label="Main navigation"
